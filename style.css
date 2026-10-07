@@ -1,0 +1,245 @@
+/* =============================================
+   Shared styles — index (menu), Soal 1, Soal 2
+   ============================================= */
+
+/* ---------- Reset ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- Page background ---------- */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 24px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #0f172a;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+}
+
+/* ---------- Index (menu) page ---------- */
+body > h1 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(15, 23, 42, 0.3);
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 380px;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4338ca;
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu a::after {
+    content: "\2192"; /* arrow */
+    color: #a5b4fc;
+    font-weight: 700;
+}
+
+.menu a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 28px rgba(15, 23, 42, 0.35);
+}
+
+/* ---------- Card (Soal 1 / Soal 2) ---------- */
+.card {
+    width: 100%;
+    max-width: 540px;
+    padding: 28px 32px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 24px 48px rgba(15, 23, 42, 0.35);
+}
+
+.card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.card h1 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+}
+
+.back-link {
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6366f1;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.btn-print {
+    display: block;
+    width: 100%;
+    margin-top: 16px;
+    padding: 13px 16px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    background: #6366f1;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-print:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+}
+
+.placeholder {
+    padding: 24px;
+    text-align: center;
+    font-size: 14px;
+    color: #64748b;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+}
+
+/* ---------- Terminal output ---------- */
+.terminal {
+    overflow: hidden;
+    background: #0f172a;
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.25);
+}
+
+.terminal__bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: #1e293b;
+    border-bottom: 1px solid #334155;
+}
+
+.terminal__bar span:not(.terminal__title) {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal__bar span:nth-child(1) {
+    background: #ef4444;
+}
+
+.terminal__bar span:nth-child(2) {
+    background: #f59e0b;
+}
+
+.terminal__bar span:nth-child(3) {
+    background: #22c55e;
+}
+
+.terminal__title {
+    margin-left: 8px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+#output {
+    padding: 20px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #4ade80;
+    text-shadow: 0 0 8px rgba(74, 222, 128, 0.25);
+    white-space: pre;
+    /* aligns the ":" in "Nama" / "Status" with "Nilai Akhir" (11 chars + colon) */
+    tab-size: 11;
+    overflow-x: auto;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+    .card {
+        padding: 20px;
+    }
+
+    body > h1 {
+        font-size: 28px;
+    }
+
+    .card h1 {
+        font-size: 20px;
+    }
+
+    #output {
+        padding: 16px;
+        font-size: 13px;
+    }
+}
+
+/* ---------- Print / PDF export ---------- */
+@media print {
+    body {
+        background: #ffffff;
+        padding: 0;
+        gap: 0;
+    }
+
+    .back-link,
+    .btn-print,
+    .terminal__bar {
+        display: none;
+    }
+
+    .card {
+        box-shadow: none;
+        border: 1px solid #e2e8f0;
+    }
+
+    .terminal {
+        background: #ffffff;
+        border: 1px solid #cbd5e1;
+        box-shadow: none;
+    }
+
+    #output {
+        color: #0f172a;
+        text-shadow: none;
+    }
+}
